@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+      enviroment: rails
+  name:  hello_rails
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      enviroment: rails
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        enviroment: rails
+    spec:
+      containers:
+        - image: 
+          name: 
